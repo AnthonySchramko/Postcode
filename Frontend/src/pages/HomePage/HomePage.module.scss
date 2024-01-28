@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10vw;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

@@ -3,7 +3,7 @@ import { postcodeUtils } from "../../services/postcode-utils";
 import Header from "../../components/Header/Header";
 import Form from "../../components/Form/Form";
 import { FormSchema } from "../../schema/form-data";
-
+import styles from "./CreatePage.module.scss";
 const CreatePage = () => {
   const navigate = useNavigate();
   const handleCreatePostcode = (data: FormSchema) => {
@@ -19,8 +19,12 @@ const CreatePage = () => {
     <div>
       <div>
         <Header text={"Suburb Information"} />
-        <p onClick={() => navigate(`/`)}>&lt; Back</p>
+
+        <p className={styles.button} onClick={() => navigate(`/`)}>
+          &lt; Back
+        </p>
       </div>
+
       <Form
         defaultValues={{
           name: "",

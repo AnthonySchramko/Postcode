@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 2em 10em;
+}
+.wrapper > div {
+  flex: 0 0 calc(33.333% - 10px);
+  margin: 5px;
+  box-sizing: border-box;
+}
+.search {
+  display: flex;
+  justify-content: center;
+}

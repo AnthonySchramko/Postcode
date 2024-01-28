@@ -3,7 +3,7 @@ import { Postcode } from "../../schema/postcode";
 import { postcodeUtils } from "../../services/postcode-utils";
 import Card from "../../components/Card/Card";
 import SearchBar from "../../components/Search Bar/SearchBar";
-
+import styles from "./PostcodeContainer.module.scss";
 const PostcodeContainer = () => {
   const [originalPostcodeList, setOriginalPostcodeList] = useState<Postcode[]>(
     []
@@ -48,13 +48,21 @@ const PostcodeContainer = () => {
   };
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
+      <div className={styles.search}>
+        <SearchBar onSearch={handleSearch} />
+      </div>
       {loading && <p>Loading...</p>}
-      {postcodeList.map((postcode: Postcode) => {
-        return (
-          <Card key={postcode.id} postcode={postcode} onDelete={handleDelete} />
-        );
-      })}
+      <div className={styles.wrapper}>
+        {postcodeList.map((postcode: Postcode) => {
+          return (
+            <Card
+              key={postcode.id}
+              postcode={postcode}
+              onDelete={handleDelete}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

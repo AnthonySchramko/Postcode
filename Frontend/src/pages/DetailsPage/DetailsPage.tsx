@@ -5,7 +5,7 @@ import { postcodeUtils } from "../../services/postcode-utils";
 import { FormSchema } from "../../schema/form-data";
 import Header from "../../components/Header/Header";
 import Form from "../../components/Form/Form";
-
+import styles from "./DetailsPage.module.scss";
 const DetailsPage = () => {
   const [currentPostcode, setCurrentPostcode] = useState<Postcode>();
   const { id } = useParams();
@@ -36,8 +36,11 @@ const DetailsPage = () => {
   };
   return (
     <div>
-      <button onClick={() => navigate(`/`)}>&lt; Back</button>
       <Header text={"Suburb Details"} />
+      <p className={styles.button} onClick={() => navigate(`/`)}>
+        &lt; Back
+      </p>
+
       {currentPostcode !== undefined ? (
         <Form
           defaultValues={{
