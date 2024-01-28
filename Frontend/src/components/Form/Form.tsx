@@ -13,7 +13,6 @@ const Form = ({ defaultValues, onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(postcodeSchema),
