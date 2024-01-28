@@ -5,7 +5,7 @@ export const postcodeSchema = z.object({
   postcode: z
     .string()
     .min(4, { message: "A postcode with only 4 digits is required" }),
-  state: z.string().min(3, { message: "A state must be provided" }),
+  state: z.string().min(2, { message: "A state must be provided" }),
   lga: z.string().min(1, { message: "A local government must be provided" }),
   population: z.number(),
 });

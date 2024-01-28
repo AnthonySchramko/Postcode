@@ -40,21 +40,22 @@ const DetailsPage = () => {
       <p className={styles.button} onClick={() => navigate(`/`)}>
         &lt; Back
       </p>
-
-      {currentPostcode !== undefined ? (
-        <Form
-          defaultValues={{
-            name: currentPostcode.name,
-            postcode: currentPostcode.postcode,
-            state: currentPostcode.state,
-            lga: currentPostcode.lga,
-            population: currentPostcode.population || 0,
-          }}
-          onSubmit={handleUpdatePostcode}
-        />
-      ) : (
-        <p>Loading suburb information...</p>
-      )}
+      <div className={styles.container}>
+        {currentPostcode !== undefined ? (
+          <Form
+            defaultValues={{
+              name: currentPostcode.name,
+              postcode: currentPostcode.postcode,
+              state: currentPostcode.state,
+              lga: currentPostcode.lga,
+              population: currentPostcode.population || 0,
+            }}
+            onSubmit={handleUpdatePostcode}
+          />
+        ) : (
+          <p>Loading suburb information...</p>
+        )}
+      </div>
     </div>
   );
 };

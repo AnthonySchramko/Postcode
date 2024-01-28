@@ -37,13 +37,30 @@ const PostcodeContainer = () => {
       console.error(e);
     }
   };
-  const handleSearch = (searchTerm: string) => {
-    const filteredResults = originalPostcodeList.filter(
+  const handleSearch = (
+    searchTerm: string,
+    stateFilter: string,
+    populationSort: string
+  ) => {
+    let filteredResults = originalPostcodeList.filter(
       (item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.postcode.includes(searchTerm) ||
         item.lga.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    if (stateFilter) {
+      filteredResults = filteredResults.filter(
+        (item) => item.state === stateFilter
+      );
+    }
+
+    if (populationSort === "ascending") {
+      filteredResults.sort((a, b) => a.population - b.population);
+    } else if (populationSort === "descending") {
+      filteredResults.sort((a, b) => b.population - a.population);
+    }
+
     setPostcodeList(filteredResults);
   };
   return (

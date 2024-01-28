@@ -24,17 +24,18 @@ const CreatePage = () => {
           &lt; Back
         </p>
       </div>
-
-      <Form
-        defaultValues={{
-          name: "",
-          postcode: "",
-          lga: "",
-          state: "",
-          population: 0,
-        }}
-        onSubmit={handleCreatePostcode}
-      />
+      <div className={styles.container}>
+        <Form
+          defaultValues={{
+            name: "",
+            postcode: "",
+            lga: "",
+            state: "",
+            population: 0,
+          }}
+          onSubmit={handleCreatePostcode}
+        />
+      </div>
     </div>
   );
 };

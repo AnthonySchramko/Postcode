@@ -11,7 +11,10 @@ const HomePage = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <p>Please click on "Edit" to find more details of each postcode</p>
-          <button onClick={() => navigate(`/add`)}> Add postcode</button>
+          <button className={styles.button} onClick={() => navigate(`/add`)}>
+            {" "}
+            Add postcode
+          </button>
         </div>
         <PostcodeContainer />
       </div>

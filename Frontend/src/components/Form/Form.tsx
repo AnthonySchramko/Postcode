@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { postcodeSchema } from "../../schema/form-validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormSchema } from "../../schema/form-data";
-
+import styles from "./Form.module.scss";
 interface FormProps {
   defaultValues: FormSchema;
   onSubmit: SubmitHandler<FormSchema>;
@@ -22,51 +22,76 @@ const Form = ({ defaultValues, onSubmit }: FormProps) => {
     onSubmit(data);
   };
   return (
-    <form onSubmit={handleSubmit(formSubmit)}>
+    <form onSubmit={handleSubmit(formSubmit)} className={styles.container}>
       <h2>Suburb details</h2>
-      <div>
+      <div className={styles.container__input}>
         <label>Suburb name</label>
-        <div>
-          <input {...register("name")} />
-          {errors.name && <span>{errors.name.message}</span>}
+        <div className={styles.wrapper}>
+          <input {...register("name")} className={styles.input} />
+          {errors.name && (
+            <span className={styles.error}>{errors.name.message}</span>
+          )}
         </div>
       </div>
       <div>
         <label>Postcode</label>
-        <div>
-          <input {...register("postcode")} />
-          {errors.postcode && <span>{errors.postcode.message}</span>}
+        <div className={styles.wrapper}>
+          <input {...register("postcode")} className={styles.input} />
+          {errors.postcode && (
+            <span className={styles.error}>{errors.postcode.message}</span>
+          )}
         </div>
       </div>
-      <div>
+      <div className={styles.container__input}>
         <label>State</label>
-        <div>
-          <input {...register("state")} />
-          {errors.state && <span>{errors.state.message}</span>}
+        <div className={styles.wrapper}>
+          <select {...register("state")} className={styles.input}>
+            <option value="NSW">NSW</option>
+            <option value="VIC">VIC</option>
+            <option value="QLD">QLD</option>
+            <option value="NT">NT</option>
+            <option value="SA">SA</option>
+            <option value="WA">WA</option>
+            <option value="TAS">TAS</option>
+          </select>
+          {errors.state && (
+            <span className={styles.error}>{errors.state.message}</span>
+          )}
         </div>
       </div>
-      <div>
+      <div className={styles.container__input}>
         <label>Local Government</label>
-        <div>
-          <input {...register("lga")} />
-          {errors.lga && <span>{errors.lga.message}</span>}
+        <div className={styles.wrapper}>
+          <input {...register("lga")} className={styles.input} />
+          {errors.lga && (
+            <span className={styles.error}>{errors.lga.message}</span>
+          )}
         </div>
       </div>
-      <div>
+      <div className={styles.container__input}>
         <label>Population</label>
-        <div>
+        <div className={styles.wrapper}>
           <input
             {...register("population", {
               setValueAs: (value) => parseFloat(value) || 0,
             })}
             type="number"
+            className={styles.input}
           />
-          {errors.population && <span>{errors.population.message}</span>}
+          {errors.population && (
+            <span className={styles.error}>{errors.population.message}</span>
+          )}
         </div>
       </div>
-      <div>
-        <button type="submit">Save</button>
-        <button type="button" onClick={() => navigate(`/`)}>
+      <div className={styles.container_button}>
+        <button type="submit" className={styles.button__save}>
+          Save
+        </button>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={() => navigate(`/`)}
+        >
           Cancel
         </button>
       </div>

@@ -1,6 +1,18 @@
 .button {
   cursor: pointer;
+  margin-left: 1em;
+  border-radius: 5px;
+  border: rgba(208, 208, 208, 255) 1px solid;
+  border-radius: 5px;
+  background-color: rgba(247, 247, 247, 255);
 }
 .text {
-  margin: 1em;
+  margin: 0.5em;
+}
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.input {
+  border-radius: 5px;
 }

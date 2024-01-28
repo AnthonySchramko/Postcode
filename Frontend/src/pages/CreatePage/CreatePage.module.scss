@@ -5,3 +5,8 @@
   margin: 2em;
   cursor: pointer;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10vw;
+}
